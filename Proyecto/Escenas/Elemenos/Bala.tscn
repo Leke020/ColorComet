@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://m3t24m53lx4u"]
+
+[ext_resource type="Script" path="res://Scripts/Elementos/Bala.gd" id="1_vaq7q"]
+[ext_resource type="Texture2D" uid="uid://ccb5m27820oga" path="res://Arte/Elementos/pixil-frame-0 (7).png" id="2_diit8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lt3wh"]
+size = Vector2(6, 4)
+
+[node name="Bala" type="Node2D"]
+script = ExtResource("1_vaq7q")
+
+[node name="Icon" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.195361, 0.629056)
+texture = ExtResource("2_diit8")
+
+[node name="Hit_box" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_box"]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_lt3wh")
+
+[connection signal="area_entered" from="Hit_box" to="." method="_on_hit_box_area_entered"]
+[connection signal="body_entered" from="Hit_box" to="." method="_on_hit_box_body_entered"]

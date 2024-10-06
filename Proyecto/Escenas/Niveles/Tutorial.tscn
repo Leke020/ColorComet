@@ -1,0 +1,320 @@
+[gd_scene load_steps=16 format=3 uid="uid://lnppuu3ehako"]
+
+[ext_resource type="PackedScene" uid="uid://djmq3fgi1nhix" path="res://Escenas/Player/Player.tscn" id="1_5bslb"]
+[ext_resource type="Script" path="res://Scripts/Niveles/Tutorial.gd" id="1_qim8w"]
+[ext_resource type="Texture2D" uid="uid://bilhid4ditsf0" path="res://Arte/UI2/Boton_A.png" id="2_05y4k"]
+[ext_resource type="Texture2D" uid="uid://cvyuyxyigjlbk" path="res://Arte/UI2/Boton_S.png" id="3_b0lpj"]
+[ext_resource type="Texture2D" uid="uid://2slf4llvqbuh" path="res://Arte/UI2/Boton_W.png" id="4_b5ll5"]
+[ext_resource type="Texture2D" uid="uid://qq1aiw85a166" path="res://Arte/UI2/Boton_D.png" id="5_2cmjo"]
+[ext_resource type="Texture2D" uid="uid://c086crcoopy43" path="res://Arte/UI2/Flecha.png" id="7_nhvlg"]
+[ext_resource type="Texture2D" uid="uid://bu25c1n2usr6r" path="res://Arte/UI2/MouseV2.png" id="8_b2h0p"]
+[ext_resource type="Texture2D" uid="uid://bem25nn4tch0p" path="res://Arte/UI2/Mouse_izq.png" id="8_kihyj"]
+[ext_resource type="Texture2D" uid="uid://q8dgnwujcfro" path="res://Arte/Player/NaveV2.png" id="8_wlykk"]
+[ext_resource type="Texture2D" uid="uid://dexiu5q3tlfe7" path="res://Arte/UI/Fondo_Planetas.png" id="10_qkpcg"]
+[ext_resource type="PackedScene" uid="uid://cieopkbjne4kd" path="res://Escenas/Enemigo/Caza/Enemigo_Caza.tscn" id="12_kuqg6"]
+[ext_resource type="Texture2D" uid="uid://b7fbph2qicd3c" path="res://Arte/Elementos/Bala_player.png" id="12_lhcal"]
+[ext_resource type="PackedScene" uid="uid://bgxmvk5c5edty" path="res://Escenas/Enemigo/Kamikaze/Enemigo_kamikaze.tscn" id="13_6txos"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btkgt"]
+size = Vector2(1406, 887)
+
+[node name="Fondo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qim8w")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.002
+anchor_bottom = 1.0
+offset_right = -0.296143
+offset_bottom = 4.0
+texture = ExtResource("10_qkpcg")
+
+[node name="Player" parent="." instance=ExtResource("1_5bslb")]
+z_index = 1
+position = Vector2(626, 337)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.509
+anchor_top = 0.914
+anchor_right = 0.509
+anchor_bottom = 0.914
+offset_left = -193.368
+offset_top = -41.272
+offset_right = 193.632
+offset_bottom = 41.728
+text = "Elimine a los enemigos para para salir del tutorial"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Disparar" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.764
+anchor_top = 0.59
+anchor_right = 0.764
+anchor_bottom = 0.59
+offset_left = -193.128
+offset_top = -41.32
+offset_right = 193.872
+offset_bottom = 41.68
+text = "Disparar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rotacion" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.888
+anchor_top = 0.59
+anchor_right = 0.888
+anchor_bottom = 0.59
+offset_left = -192.976
+offset_top = -41.3199
+offset_right = 194.024
+offset_bottom = 41.6801
+text = "Rotación"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Movimiento" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.17
+anchor_top = 0.252
+anchor_right = 0.17
+anchor_bottom = 0.252
+offset_left = -193.84
+offset_top = -41.296
+offset_right = 193.16
+offset_bottom = 41.704
+text = "Movimiento"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.998
+anchor_bottom = 1.0
+offset_right = 0.303955
+offset_bottom = 4.0
+color = Color(0.0196078, 0.0196078, 0.0196078, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(577, 321.5)
+shape = SubResource("RectangleShape2D_btkgt")
+
+[node name="Boton_A" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.281
+anchor_top = 0.417
+anchor_right = 0.281
+anchor_bottom = 0.417
+offset_left = -176.712
+offset_top = -64.216
+offset_right = 31.288
+offset_bottom = 63.784
+texture = ExtResource("2_05y4k")
+
+[node name="Boton_S" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.284
+anchor_top = 0.415
+anchor_right = 0.284
+anchor_bottom = 0.415
+offset_left = -104.168
+offset_top = -63.92
+offset_right = 103.832
+offset_bottom = 64.08
+texture = ExtResource("3_b0lpj")
+
+[node name="Boton_D" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.28
+anchor_top = 0.415
+anchor_right = 0.28
+anchor_bottom = 0.415
+offset_left = -22.56
+offset_top = -63.92
+offset_right = 185.44
+offset_bottom = 64.08
+texture = ExtResource("5_2cmjo")
+
+[node name="Flecha_Arriba" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.283
+anchor_top = 0.169
+anchor_right = 0.283
+anchor_bottom = 0.169
+offset_left = 54.984
+offset_top = -101.512
+offset_right = 262.984
+offset_bottom = 26.488
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+texture = ExtResource("7_nhvlg")
+
+[node name="Boton_W" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.283
+anchor_top = 0.397
+anchor_right = 0.283
+anchor_bottom = 0.397
+offset_left = -104.016
+offset_top = -112.256
+offset_right = 103.984
+offset_bottom = 15.744
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_b5ll5")
+
+[node name="Flecha_Der" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.447
+anchor_top = 0.407
+anchor_right = 0.447
+anchor_bottom = 0.407
+offset_left = 104.056
+offset_top = 64.264
+offset_right = 312.056
+offset_bottom = 192.264
+rotation = 3.14159
+texture = ExtResource("7_nhvlg")
+
+[node name="Flecha_Abajo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.283
+anchor_top = 0.567
+anchor_right = 0.283
+anchor_bottom = 0.567
+offset_left = -57.016
+offset_top = 97.584
+offset_right = 150.984
+offset_bottom = 225.584
+rotation = 4.71239
+texture = ExtResource("7_nhvlg")
+
+[node name="Flecha_Izq" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.113
+anchor_top = 0.397
+anchor_right = 0.113
+anchor_bottom = 0.397
+offset_left = -104.176
+offset_top = -43.256
+offset_right = 103.824
+offset_bottom = 84.744
+texture = ExtResource("7_nhvlg")
+
+[node name="Cursor_izq" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.79
+anchor_top = 0.434
+anchor_right = 0.79
+anchor_bottom = 0.434
+offset_left = -104.08
+offset_top = -64.232
+offset_right = 103.92
+offset_bottom = 63.768
+texture = ExtResource("8_kihyj")
+
+[node name="Cursor2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.884
+anchor_top = 0.435
+anchor_right = 0.884
+anchor_bottom = 0.435
+offset_left = -110.368
+offset_top = -67.88
+offset_right = 110.632
+offset_bottom = 68.12
+texture = ExtResource("8_b2h0p")
+expand_mode = 1
+
+[node name="Nave" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.696
+anchor_top = 0.465
+anchor_right = 0.696
+anchor_bottom = 0.465
+offset_left = -95.7921
+offset_top = -113.32
+offset_right = 96.2079
+offset_bottom = 78.68
+texture = ExtResource("8_wlykk")
+expand_mode = 1
+
+[node name="Bala" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.696
+anchor_top = 0.305
+anchor_right = 0.696
+anchor_bottom = 0.305
+offset_left = -17.7921
+offset_top = -53.64
+offset_right = 17.2079
+offset_bottom = 53.36
+texture = ExtResource("12_lhcal")
+expand_mode = 1
+
+[node name="Enemigo_1" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.437
+anchor_top = 0.77
+anchor_right = 0.437
+anchor_bottom = 0.77
+offset_left = -503.424
+offset_top = -498.96
+offset_right = -463.424
+offset_bottom = -458.96
+
+[node name="Enemigo_Caza" parent="Enemigo_1" instance=ExtResource("12_kuqg6")]
+position = Vector2(501, 499)
+puedeDisparar = false
+puedeMover = false
+
+[node name="Enemigo_2" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.571
+anchor_top = 0.768
+anchor_right = 0.571
+anchor_bottom = 0.768
+offset_left = -657.792
+offset_top = -497.664
+offset_right = -617.792
+offset_bottom = -457.664
+
+[node name="Enemigo_Kamikaze" parent="Enemigo_2" instance=ExtResource("13_6txos")]
+position = Vector2(658, 501)
+puedeMover = false
+
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

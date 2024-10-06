@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://rpo4uaxgr2f3"]
+
+[ext_resource type="Script" path="res://Scripts/Enemigo/Jefe/Enemigo_Jefe.gd" id="1_kjipn"]
+[ext_resource type="Texture2D" uid="uid://ca33q5kjwsjc0" path="res://Arte/Enemigo/Jefe/Jefe320x320.png" id="2_rodk0"]
+[ext_resource type="AudioStream" uid="uid://dau6k3l6ewv24" path="res://Musica/Laser de color numero 1.mp3" id="3_ucjr7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u4x8e"]
+radius = 120.324
+
+[node name="Enemigo_Jefe" type="CharacterBody2D" groups=["Enemigo"]]
+z_index = -1
+collision_layer = 0
+script = ExtResource("1_kjipn")
+
+[node name="Cañoes" type="Node" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(-1.315, -3.545)
+shape = SubResource("CircleShape2D_u4x8e")
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="Pivot"]
+rotation = 1.5708
+texture = ExtResource("2_rodk0")
+
+[node name="Direccion_1" type="Node2D" parent="."]
+position = Vector2(-1, -147)
+
+[node name="Direccion_2" type="Node2D" parent="."]
+position = Vector2(141, -1)
+
+[node name="Direccion_3" type="Node2D" parent="."]
+position = Vector2(-1, 144)
+
+[node name="Direccion_4" type="Node2D" parent="."]
+position = Vector2(-144, 0)
+
+[node name="Cañon_1" type="Node2D" parent="."]
+position = Vector2(-1, -141)
+
+[node name="Cañon_2" type="Node2D" parent="."]
+position = Vector2(134, -1)
+
+[node name="Cañon_3" type="Node2D" parent="."]
+position = Vector2(-1, 139)
+
+[node name="Cañon_4" type="Node2D" parent="."]
+position = Vector2(-138, 0)
+
+[node name="Pos_1" type="Node2D" parent="."]
+position = Vector2(1045, 92)
+
+[node name="Pos_2" type="Node2D" parent="."]
+position = Vector2(75, 46)
+
+[node name="Pos_3" type="Node2D" parent="."]
+position = Vector2(87, 558)
+
+[node name="Pos_4" type="Node2D" parent="."]
+position = Vector2(1033, 546)
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = 1
+position = Vector2(-1.315, -3.545)
+shape = SubResource("CircleShape2D_u4x8e")
+
+[node name="Disparoenemigo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ucjr7")
+volume_db = -5.652
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

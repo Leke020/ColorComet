@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=3 uid="uid://bgxmvk5c5edty"]
+
+[ext_resource type="Script" path="res://Scripts/Enemigo/Kamikaze/Enemigo_kamikaze.gd" id="1_ltn1a"]
+[ext_resource type="Texture2D" uid="uid://dhkrkullogfv5" path="res://Arte/Enemigo/Kamikaze/KamikazeV2.png" id="2_8bret"]
+[ext_resource type="AudioStream" uid="uid://brovwhyb6u8fk" path="res://Escenas/Audio del Juego/Explosion personalizada 1.mp3" id="3_hujh1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aasre"]
+size = Vector2(47, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypnfk"]
+size = Vector2(14, 4.5)
+
+[sub_resource type="Curve2D" id="Curve2D_7xjqj"]
+
+[node name="Enemigo_Kamikaze" type="CharacterBody2D" groups=["Enemigo"]]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_ltn1a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(-8.5, -0.5)
+shape = SubResource("RectangleShape2D_aasre")
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="Pivot"]
+rotation = 1.5708
+scale = Vector2(0.630129, 0.808972)
+texture = ExtResource("2_8bret")
+
+[node name="Hurt_box" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt_box"]
+position = Vector2(25, -0.75)
+shape = SubResource("RectangleShape2D_ypnfk")
+
+[node name="Explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hujh1")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_7xjqj")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+
+[node name="Direcciones" type="Control" parent="."]
+layout_direction = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Direccion_1" type="Node2D" parent="Direcciones"]
+position = Vector2(-139, -79)
+
+[node name="Direccion_2" type="Node2D" parent="Direcciones"]
+position = Vector2(0, -87)
+
+[node name="Direccion_3" type="Node2D" parent="Direcciones"]
+position = Vector2(134, -88)
+
+[node name="Direccion_4" type="Node2D" parent="Direcciones"]
+position = Vector2(142, 17)
+
+[node name="Direccion_5" type="Node2D" parent="Direcciones"]
+position = Vector2(149, 121)
+
+[node name="Direccion_6" type="Node2D" parent="Direcciones"]
+position = Vector2(-3, 136)
+
+[node name="Direccion_7" type="Node2D" parent="Direcciones"]
+position = Vector2(-142, 129)
+
+[node name="Direccion_8" type="Node2D" parent="Direcciones"]
+position = Vector2(-151, 9)
+
+[connection signal="area_entered" from="Hurt_box" to="." method="_on_hurt_box_area_entered"]
+[connection signal="body_entered" from="Hurt_box" to="." method="_on_hurt_box_body_entered"]
+[connection signal="finished" from="Explosion" to="." method="_on_explosion_finished"]

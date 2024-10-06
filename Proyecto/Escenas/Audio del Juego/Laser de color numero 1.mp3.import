@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://3tql4mmbl1si"
+path="res://.godot/imported/Laser de color numero 1.mp3-9ac3d0e4c93b26af713939cdbd4a74bc.mp3str"
+
+[deps]
+
+source_file="res://Escenas/Audio del Juego/Laser de color numero 1.mp3"
+dest_files=["res://.godot/imported/Laser de color numero 1.mp3-9ac3d0e4c93b26af713939cdbd4a74bc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://djmq3fgi1nhix"]
+
+[ext_resource type="Script" path="res://Scripts/Player/PlayerV2.gd" id="1_rdsbi"]
+[ext_resource type="Texture2D" uid="uid://q8dgnwujcfro" path="res://Arte/Player/NaveV2.png" id="2_fr36c"]
+[ext_resource type="AudioStream" uid="uid://bh21r1xgknihk" path="res://Escenas/Audio del Juego/Laser o disparo de nave (mp3cut.net).mp3" id="5_kbgu3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_egesa"]
+size = Vector2(34, 4)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(6, 3)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_rdsbi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_egesa")
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="Pivot"]
+position = Vector2(1, 1)
+rotation = 1.5708
+scale = Vector2(0.696757, 0.932893)
+texture = ExtResource("2_fr36c")
+
+[node name="Disparo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_kbgu3")

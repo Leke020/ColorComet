@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2yk0fqd52w0m"]
+
+[ext_resource type="Script" path="res://Scripts/Elementos/Perdiste.gd" id="1_8o6ie"]
+[ext_resource type="Texture2D" uid="uid://mkdj3ncthdnj" path="res://Arte/UI/pantalla ganaste.png" id="2_dqc6j"]
+[ext_resource type="Texture2D" uid="uid://dyefe8ojih7lo" path="res://Arte/Botones/botoncontinuar.png" id="3_ydv5u"]
+
+[node name="Perdiste" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8o6ie")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -2.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_dqc6j")
+expand_mode = 1
+
+[node name="Continuar" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.507
+anchor_top = 0.904
+anchor_right = 0.507
+anchor_bottom = 0.904
+offset_left = -143.064
+offset_top = -49.7921
+offset_right = 142.936
+offset_bottom = 50.2079
+icon = ExtResource("3_ydv5u")
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="Continuar" to="." method="_on_continuar_pressed"]

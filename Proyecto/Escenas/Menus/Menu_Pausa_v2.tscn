@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd7mltgd3hl0"]
+
+[ext_resource type="Texture2D" uid="uid://dhaa5t6llha1o" path="res://Arte/UI3/titulocolorcomet.png" id="1_lv5qe"]
+[ext_resource type="Script" path="res://Scripts/Menu/Menu_Pausa_v2.gd" id="1_m8cxy"]
+[ext_resource type="Texture2D" uid="uid://hifjxmaj1cds" path="res://Arte/Botones/Reanudar.png" id="3_f70r5"]
+[ext_resource type="Texture2D" uid="uid://d0mlsnelhbfw8" path="res://Arte/Botones/Menu_Principal.png" id="4_agme4"]
+
+[node name="Pausa" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m8cxy")
+
+[node name="Popup" type="Node2D" parent="."]
+process_mode = 3
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="Popup"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 369.98
+offset_top = 78.865
+offset_right = 1369.98
+offset_bottom = 678.865
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.42, 0.42)
+texture = ExtResource("1_lv5qe")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Popup"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 552.5
+offset_top = 86.785
+offset_right = 599.5
+offset_bottom = 112.785
+grow_horizontal = 2
+text = "Pausa"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Boton_reanudar" type="Button" parent="Popup"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 534.0
+offset_top = 367.34
+offset_right = 618.0
+offset_bottom = 398.34
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("3_f70r5")
+icon_alignment = 1
+
+[node name="Boton_Menu_principal" type="Button" parent="Popup"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 468.0
+offset_top = 457.11
+offset_right = 684.0
+offset_bottom = 593.11
+grow_horizontal = 2
+grow_vertical = 0
+icon = ExtResource("4_agme4")
+icon_alignment = 1
+
+[connection signal="pressed" from="Popup/Boton_reanudar" to="." method="_on_boton_reanudar_pressed"]
+[connection signal="pressed" from="Popup/Boton_Menu_principal" to="." method="_on_boton_menu_principal_pressed"]

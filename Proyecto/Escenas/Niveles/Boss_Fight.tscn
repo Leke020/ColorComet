@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=3 uid="uid://0l2ypm37f17w"]
+
+[ext_resource type="PackedScene" uid="uid://djmq3fgi1nhix" path="res://Escenas/Player/Player.tscn" id="1_0ri0x"]
+[ext_resource type="Script" path="res://Scripts/Niveles/Boss_Fight.gd" id="1_n8s5w"]
+[ext_resource type="PackedScene" uid="uid://rpo4uaxgr2f3" path="res://Escenas/Enemigo/Jefe/Enemigo_Jefe.tscn" id="2_2lfpw"]
+[ext_resource type="PackedScene" uid="uid://bgxmvk5c5edty" path="res://Escenas/Enemigo/Kamikaze/Enemigo_kamikaze.tscn" id="2_f3wy4"]
+[ext_resource type="PackedScene" uid="uid://cieopkbjne4kd" path="res://Escenas/Enemigo/Caza/Enemigo_Caza.tscn" id="3_ioba0"]
+[ext_resource type="AudioStream" uid="uid://bprn6qs65ehyd" path="res://Musica/Boss fight 4 definitive Edition.mp3" id="6_n3p72"]
+[ext_resource type="PackedScene" uid="uid://cd7mltgd3hl0" path="res://Escenas/Menus/Menu_Pausa_v2.tscn" id="7_vgsfl"]
+[ext_resource type="PackedScene" uid="uid://b6jwc261mpyw0" path="res://Escenas/Player/UIVida.tscn" id="8_relc6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ao4nr"]
+size = Vector2(1406, 887)
+
+[node name="Boss_Fight" type="Node2D"]
+script = ExtResource("1_n8s5w")
+enemigos = Array[PackedScene]([ExtResource("2_f3wy4"), ExtResource("3_ioba0")])
+
+[node name="Player" parent="." instance=ExtResource("1_0ri0x")]
+position = Vector2(242, 378)
+
+[node name="DetectarPlayer" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectarPlayer"]
+position = Vector2(577, 321.5)
+shape = SubResource("RectangleShape2D_ao4nr")
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(1180, 684)
+scale = Vector2(14.0742, -7.35254)
+
+[node name="SpawnPoint2" type="Node2D" parent="."]
+position = Vector2(1184, 301)
+scale = Vector2(8370.89, -57289.9)
+
+[node name="SpawnPoint3" type="Node2D" parent="."]
+position = Vector2(1182, -30)
+scale = Vector2(8370.89, -57289.9)
+
+[node name="SpawnPoint4" type="Node2D" parent="."]
+position = Vector2(569, -41)
+scale = Vector2(8370.89, -57289.9)
+
+[node name="SpawnPoint5" type="Node2D" parent="."]
+position = Vector2(-30, -34)
+scale = Vector2(8370.89, -57289.9)
+
+[node name="SpawnPoint6" type="Node2D" parent="."]
+position = Vector2(-39, 285)
+scale = Vector2(8370.89, -57289.9)
+
+[node name="SpawnPoint7" type="Node2D" parent="."]
+position = Vector2(-60, 708)
+scale = Vector2(8370.89, -57289.9)
+
+[node name="SpawnPoint8" type="Node2D" parent="."]
+position = Vector2(584, 699)
+scale = Vector2(8370.89, -57289.9)
+
+[node name="Enemigo_Jefe" parent="." instance=ExtResource("2_2lfpw")]
+position = Vector2(577, 341)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 2211.0
+offset_bottom = 1400.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+z_index = -2
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.914
+anchor_bottom = 0.867
+offset_right = -0.468018
+offset_bottom = -0.250061
+color = Color(0.0235294, 0.0235294, 0.0235294, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_n3p72")
+volume_db = -12.435
+autoplay = true
+
+[node name="Pausa" parent="." instance=ExtResource("7_vgsfl")]
+
+[node name="UIVida" parent="." instance=ExtResource("8_relc6")]
+
+[connection signal="body_entered" from="DetectarPlayer" to="." method="_on_detectar_player_body_entered"]
+[connection signal="body_exited" from="DetectarPlayer" to="." method="_on_detectar_player_body_exited"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bjhmp6gtp0w1t"
+path="res://.godot/imported/mi_explosion_de meteorito o lo que sea.mp3-fcdb172201dbb45566034402b759317e.mp3str"
+
+[deps]
+
+source_file="res://Escenas/Audio del Juego/mi_explosion_de meteorito o lo que sea.mp3"
+dest_files=["res://.godot/imported/mi_explosion_de meteorito o lo que sea.mp3-fcdb172201dbb45566034402b759317e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,105 @@
+[gd_scene load_steps=10 format=3 uid="uid://c2x2pxyasbcd0"]
+
+[ext_resource type="Script" path="res://Scripts/Niveles/Level_2.gd" id="1_npwbt"]
+[ext_resource type="PackedScene" uid="uid://djmq3fgi1nhix" path="res://Escenas/Player/Player.tscn" id="2_0q35h"]
+[ext_resource type="PackedScene" uid="uid://bgxmvk5c5edty" path="res://Escenas/Enemigo/Kamikaze/Enemigo_kamikaze.tscn" id="2_kvv0l"]
+[ext_resource type="PackedScene" uid="uid://cieopkbjne4kd" path="res://Escenas/Enemigo/Caza/Enemigo_Caza.tscn" id="3_rhagr"]
+[ext_resource type="Texture2D" uid="uid://d1tcm3civ4kuq" path="res://Arte/UI3/Planeta_2.png" id="5_r46oe"]
+[ext_resource type="AudioStream" uid="uid://cjcxgshht0xqp" path="res://Musica/Prueba de audio para nivel base.mp3" id="6_y16gd"]
+[ext_resource type="PackedScene" uid="uid://cd7mltgd3hl0" path="res://Escenas/Menus/Menu_Pausa_v2.tscn" id="7_eyj4l"]
+[ext_resource type="PackedScene" uid="uid://b6jwc261mpyw0" path="res://Escenas/Player/UIVida.tscn" id="8_mhkv2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hqh8"]
+size = Vector2(1406, 887)
+
+[node name="Level_2" type="Node2D"]
+position = Vector2(-18, -18)
+script = ExtResource("1_npwbt")
+enemigos = Array[PackedScene]([ExtResource("3_rhagr"), ExtResource("2_kvv0l")])
+maxEnemigos = 20
+
+[node name="DetectarPlayer" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectarPlayer"]
+position = Vector2(577, 321.5)
+shape = SubResource("RectangleShape2D_4hqh8")
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(1180, 684)
+scale = Vector2(14.0742, -7.35254)
+
+[node name="SpawnPoint2" type="Node2D" parent="."]
+position = Vector2(1184, 301)
+scale = Vector2(8370.89, -57289.9)
+
+[node name="SpawnPoint3" type="Node2D" parent="."]
+position = Vector2(1182, -30)
+scale = Vector2(8370.89, -57289.9)
+
+[node name="SpawnPoint4" type="Node2D" parent="."]
+position = Vector2(569, -41)
+scale = Vector2(8370.89, -57289.9)
+
+[node name="SpawnPoint5" type="Node2D" parent="."]
+position = Vector2(-30, -34)
+scale = Vector2(8370.89, -57289.9)
+
+[node name="SpawnPoint6" type="Node2D" parent="."]
+position = Vector2(-39, 285)
+scale = Vector2(8370.89, -57289.9)
+
+[node name="SpawnPoint7" type="Node2D" parent="."]
+position = Vector2(-60, 708)
+scale = Vector2(8370.89, -57289.9)
+
+[node name="SpawnPoint8" type="Node2D" parent="."]
+position = Vector2(584, 699)
+scale = Vector2(8370.89, -57289.9)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 18.0
+offset_top = 21.0
+offset_right = 2229.0
+offset_bottom = 1421.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.914
+anchor_bottom = 0.867
+offset_right = -0.468018
+offset_bottom = -0.250061
+color = Color(0.0235294, 0.0235294, 0.0235294, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.232
+anchor_top = 0.227
+anchor_right = 0.232
+anchor_bottom = 0.227
+offset_left = -64.952
+offset_top = -63.8
+offset_right = 63.048
+offset_bottom = 64.2
+texture = ExtResource("5_r46oe")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_y16gd")
+volume_db = -12.435
+autoplay = true
+
+[node name="Pausa" parent="." instance=ExtResource("7_eyj4l")]
+
+[node name="UIVida" parent="." instance=ExtResource("8_mhkv2")]
+
+[node name="Player" parent="." instance=ExtResource("2_0q35h")]
+position = Vector2(310, 233)
+
+[connection signal="body_entered" from="DetectarPlayer" to="." method="_on_detectar_player_body_entered"]
+[connection signal="body_exited" from="DetectarPlayer" to="." method="_on_detectar_player_body_exited"]

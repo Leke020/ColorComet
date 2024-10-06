@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cieopkbjne4kd"]
+
+[ext_resource type="Script" path="res://Scripts/Enemigo/Enemigo.gd" id="1_fw4yg"]
+[ext_resource type="Texture2D" uid="uid://c8cl11dp4u3qg" path="res://Arte/Enemigo/Caza/CazaV2.png" id="2_q5p1s"]
+[ext_resource type="AudioStream" uid="uid://dau6k3l6ewv24" path="res://Musica/Laser de color numero 1.mp3" id="3_aq1rv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fnbu"]
+size = Vector2(64, 17)
+
+[node name="Enemigo_Caza" type="CharacterBody2D" groups=["Enemigo"]]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_fw4yg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(2, -1.5)
+shape = SubResource("RectangleShape2D_7fnbu")
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="Pivot"]
+rotation = 1.5708
+texture = ExtResource("2_q5p1s")
+
+[node name="Disparoenemigo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_aq1rv")
+volume_db = -5.652

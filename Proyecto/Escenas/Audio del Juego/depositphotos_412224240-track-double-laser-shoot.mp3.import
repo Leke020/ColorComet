@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dd2jm1rlou6i0"
+path="res://.godot/imported/depositphotos_412224240-track-double-laser-shoot.mp3-5ee2bbd05996fd8b9256750915dfce34.mp3str"
+
+[deps]
+
+source_file="res://Escenas/Audio del Juego/depositphotos_412224240-track-double-laser-shoot.mp3"
+dest_files=["res://.godot/imported/depositphotos_412224240-track-double-laser-shoot.mp3-5ee2bbd05996fd8b9256750915dfce34.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

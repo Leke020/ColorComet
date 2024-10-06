@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqacmbatr2njd"]
+
+[ext_resource type="Script" path="res://Scripts/Elementos/Life_bar.gd" id="1_nx8g5"]
+[ext_resource type="Texture2D" uid="uid://dnykyxg2igfn7" path="res://Arte/UI/Healthbar_inner.png" id="1_swcvx"]
+[ext_resource type="Texture2D" uid="uid://cdpkc2grtqwmg" path="res://Arte/UI/Healthbar_overlay.png" id="2_vvq6c"]
+[ext_resource type="Texture2D" uid="uid://g747lw1uylc6" path="res://Arte/UI/Healthbar.png" id="3_mci4o"]
+
+[node name="Life_Bar" type="CanvasLayer"]
+scale = Vector2(1.985, 1.985)
+transform = Transform2D(1.985, 0, 0, 1.985, 0, 0)
+script = ExtResource("1_nx8g5")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_right = 123.0
+offset_bottom = 14.0
+value = 100.0
+texture_under = ExtResource("1_swcvx")
+texture_over = ExtResource("2_vvq6c")
+texture_progress = ExtResource("3_mci4o")
+texture_progress_offset = Vector2(2.77, 0)

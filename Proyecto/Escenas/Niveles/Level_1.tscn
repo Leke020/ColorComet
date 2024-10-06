@@ -1,0 +1,141 @@
+[gd_scene load_steps=10 format=3 uid="uid://cvrqncf6xv75o"]
+
+[ext_resource type="Script" path="res://Scripts/Niveles/Level.gd" id="1_28wp6"]
+[ext_resource type="PackedScene" uid="uid://djmq3fgi1nhix" path="res://Escenas/Player/Player.tscn" id="2_ryrd1"]
+[ext_resource type="Texture2D" uid="uid://b3yc8j07lqpop" path="res://Arte/UI3/Planeta_1.png" id="4_fa51c"]
+[ext_resource type="PackedScene" uid="uid://b6jwc261mpyw0" path="res://Escenas/Player/UIVida.tscn" id="4_gnm43"]
+[ext_resource type="PackedScene" uid="uid://bgxmvk5c5edty" path="res://Escenas/Enemigo/Kamikaze/Enemigo_kamikaze.tscn" id="4_l3miy"]
+[ext_resource type="AudioStream" uid="uid://bcqstn2ubnqwv" path="res://Musica/Level 1.mp3" id="5_u5uqj"]
+[ext_resource type="PackedScene" uid="uid://cd7mltgd3hl0" path="res://Escenas/Menus/Menu_Pausa_v2.tscn" id="7_thtoa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_axlud"]
+size = Vector2(1406, 887)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1qjn"]
+size = Vector2(1487, 887)
+
+[node name="Level_1" type="Node2D"]
+script = ExtResource("1_28wp6")
+enemigos = Array[PackedScene]([ExtResource("4_l3miy")])
+maxEnemigos = 15
+
+[node name="Direcciones" type="Node" parent="."]
+
+[node name="Direccion_1" type="Node2D" parent="Direcciones"]
+position = Vector2(456, 216)
+
+[node name="Direccion_2" type="Node2D" parent="Direcciones"]
+position = Vector2(595, 208)
+
+[node name="Direccion_3" type="Node2D" parent="Direcciones"]
+position = Vector2(729, 207)
+
+[node name="Direccion_4" type="Node2D" parent="Direcciones"]
+position = Vector2(737, 312)
+
+[node name="Direccion_5" type="Node2D" parent="Direcciones"]
+position = Vector2(744, 416)
+
+[node name="Direccion_6" type="Node2D" parent="Direcciones"]
+position = Vector2(592, 431)
+
+[node name="Direccion_7" type="Node2D" parent="Direcciones"]
+position = Vector2(453, 424)
+
+[node name="Direccion_8" type="Node2D" parent="Direcciones"]
+position = Vector2(444, 304)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1153.0
+offset_bottom = 650.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0235294, 0.0235294, 0.0235294, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 489.0
+offset_top = 285.0
+offset_right = 617.0
+offset_bottom = 413.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_fa51c")
+
+[node name="Player" parent="." instance=ExtResource("2_ryrd1")]
+position = Vector2(400.16, 314)
+
+[node name="DetectarPlayer" type="Area2D" parent="."]
+visible = false
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectarPlayer"]
+position = Vector2(577, 321.5)
+shape = SubResource("RectangleShape2D_axlud")
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(1232, 686)
+scale = Vector2(14.0742, -7.35254)
+
+[node name="SpawnPoint2" type="Node2D" parent="."]
+position = Vector2(1227, 301)
+scale = Vector2(8370.89, -57289.9)
+
+[node name="SpawnPoint3" type="Node2D" parent="."]
+position = Vector2(1220, -32)
+scale = Vector2(8370.89, -57289.9)
+
+[node name="SpawnPoint4" type="Node2D" parent="."]
+position = Vector2(569, -41)
+scale = Vector2(8370.89, -57289.9)
+
+[node name="SpawnPoint5" type="Node2D" parent="."]
+position = Vector2(-30, -34)
+scale = Vector2(8370.89, -57289.9)
+
+[node name="SpawnPoint6" type="Node2D" parent="."]
+position = Vector2(-43, 281)
+scale = Vector2(8370.89, -57289.9)
+
+[node name="SpawnPoint7" type="Node2D" parent="."]
+position = Vector2(-60, 708)
+scale = Vector2(8370.89, -57289.9)
+
+[node name="SpawnPoint8" type="Node2D" parent="."]
+position = Vector2(581, 722)
+scale = Vector2(8370.89, -57289.9)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_u5uqj")
+volume_db = -12.435
+autoplay = true
+
+[node name="Pausa" parent="." instance=ExtResource("7_thtoa")]
+
+[node name="UIVida2" parent="." instance=ExtResource("4_gnm43")]
+
+[node name="Enemigo_Kamikaze" parent="." instance=ExtResource("4_l3miy")]
+
+[node name="AreaDeMuerte" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeMuerte"]
+position = Vector2(576.5, 317.5)
+shape = SubResource("RectangleShape2D_s1qjn")
+
+[connection signal="body_entered" from="DetectarPlayer" to="." method="_on_detectar_player_body_entered"]
+[connection signal="body_exited" from="DetectarPlayer" to="." method="_on_detectar_player_body_exited"]
+[connection signal="eliminado" from="Enemigo_Kamikaze" to="." method="_on_enemigo_kamikaze_eliminado"]
+[connection signal="body_entered" from="AreaDeMuerte" to="." method="_on_area_de_muerte_body_entered"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c73irqs6qkygv"
+path="res://.godot/imported/Attack Mejor.mp3-04e01a5df2c59a458ed8031f9ede073c.mp3str"
+
+[deps]
+
+source_file="res://Escenas/Audio del Juego/Attack Mejor.mp3"
+dest_files=["res://.godot/imported/Attack Mejor.mp3-04e01a5df2c59a458ed8031f9ede073c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

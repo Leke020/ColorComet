@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpon6u3124ii2"]
+
+[ext_resource type="Texture2D" uid="uid://b7fbph2qicd3c" path="res://Arte/Elementos/Bala_player.png" id="1_6xb5f"]
+[ext_resource type="Script" path="res://Scripts/Elementos/Bala_player.gd" id="1_lamq3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lkdwx"]
+size = Vector2(6, 4)
+
+[node name="BalaPlayer" type="Node2D"]
+scale = Vector2(0.694, 0.7)
+script = ExtResource("1_lamq3")
+
+[node name="Icon" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.195361, 0.629056)
+texture = ExtResource("1_6xb5f")
+
+[node name="Hit_box" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_box"]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_lkdwx")
+
+[connection signal="area_entered" from="Hit_box" to="." method="_on_hit_box_area_entered"]
+[connection signal="body_entered" from="Hit_box" to="." method="_on_hit_box_body_entered"]

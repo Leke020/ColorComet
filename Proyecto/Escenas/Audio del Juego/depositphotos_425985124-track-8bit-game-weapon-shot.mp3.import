@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://7msbnrtlc6ja"
+path="res://.godot/imported/depositphotos_425985124-track-8bit-game-weapon-shot.mp3-d57662e54eb5cd65a4f809af62fc9bd1.mp3str"
+
+[deps]
+
+source_file="res://Escenas/Audio del Juego/depositphotos_425985124-track-8bit-game-weapon-shot.mp3"
+dest_files=["res://.godot/imported/depositphotos_425985124-track-8bit-game-weapon-shot.mp3-d57662e54eb5cd65a4f809af62fc9bd1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

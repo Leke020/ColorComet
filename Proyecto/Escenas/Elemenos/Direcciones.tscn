@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://dub2moc6plvgf"]
+
+[ext_resource type="Script" path="res://Scripts/Elementos/Direcciones.gd" id="1_wqgyx"]
+
+[node name="Direcciones" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wqgyx")
+
+[node name="Direccion_1" type="Node2D" parent="."]
+position = Vector2(417, 219)
+
+[node name="Direccion_2" type="Node2D" parent="."]
+position = Vector2(569, 214)
+
+[node name="Direccion_3" type="Node2D" parent="."]
+position = Vector2(703, 213)
+
+[node name="Direccion_4" type="Node2D" parent="."]
+position = Vector2(711, 318)
+
+[node name="Direccion_5" type="Node2D" parent="."]
+position = Vector2(718, 422)
+
+[node name="Direccion_6" type="Node2D" parent="."]
+position = Vector2(566, 437)
+
+[node name="Direccion_7" type="Node2D" parent="."]
+position = Vector2(427, 430)
+
+[node name="Direccion_8" type="Node2D" parent="."]
+position = Vector2(418, 310)

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b01wco0jrw6qr"
+path="res://.godot/imported/Prueba de audio para nivel base.mp3-588a3916841834da9af5afa0affd5d69.mp3str"
+
+[deps]
+
+source_file="res://Escenas/Audio del Juego/Prueba de audio para nivel base.mp3"
+dest_files=["res://.godot/imported/Prueba de audio para nivel base.mp3-588a3916841834da9af5afa0affd5d69.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
